@@ -1,7 +1,7 @@
 <?php
 include "database.php";
 
-$table_name='catégorie';
+$table_name='categorie';
 $query="CREATE TABLE `".$table_name."`(
     `Id`INT NOT NULL AUTO_INCREMENT,
     `Libelle` VARCHAR (50) NOT NULL,

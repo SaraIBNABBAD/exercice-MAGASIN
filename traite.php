@@ -1,6 +1,5 @@
 <?php
 include "database.php";
-include "produit.php";
 // stocker les images dans le dossier des image;
 function afficheImage(){
     $lien_img="download/";
@@ -12,8 +11,6 @@ function afficheImage(){
         return null;
     }
 } 
-// $pdt=new Produit();
-// stocker les données dans la BD via le formulaire;
 
 if (isset($_POST["submit"])) {
     if (empty(trim($_POST["nomPDT"]))or empty(trim($_POST["prix"]))or empty(trim($_POST["qte"])) or empty(trim($_POST["desc"]))) {
@@ -42,4 +39,6 @@ if (isset($_POST["submit"])) {
         $statement->execute($tab);
         echo "produit ajouté avec succé";
     }
+   
 }
+
