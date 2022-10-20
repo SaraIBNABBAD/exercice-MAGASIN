@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" media="screen" type="text/css"  href="style.css"/>
     <title>Document</title>
 </head>
 <body>
@@ -17,9 +17,13 @@
          $categories=$stmt->fetchAll(PDO::FETCH_ASSOC);
      }
     ?>
-<h1> MAGASIN DE PRODUIT</h1>
-<div class="flex">
+    
+   
+
 <form action="traite.php" method="post" enctype="multipart/form-data">
+<div id="tete">
+        <h1> MAGASIN DE PRODUIT</h1>
+    </div> 
 <fieldset>
     <legend>AJOUTER PRODUIT</legend>
     
@@ -57,23 +61,16 @@
         <input type="submit" value="Valider" name="submit">
     </div>
     </div>    
-</fieldset>
+  </fieldset>
 </form>
-<form action="traiteCat.php" method="post">
-        <fieldset>
-        <legend>AJOUTER CATEGORIE</legend>
-        
-        <div>
-            <label for="cat">Catégorie</label>
-            <input type="text" name="cattr" id="cat">
-        </div>
-        <input type="submit" value="Ajouter" name="add">
-        </fieldset>
-    </form>
-    </div>
-    <div class="btn">
-    <button><a href="pdt_cat.php">Poduits</a></button>
-    <button><a href="affichCatg.php">Catégorie</a></button>
-    </div>    
+
+
+    
+  <div class="btn">
+     <button><a href="pdt_cat.php">Poduits</a></button>
+     <button><a href="addCat.php"> Ajouter Catégorie</a></button>
+     <button><a href="affichCatg.php">Catégorie</a></button>
+  </div>  
+ 
 </body>
 </html>

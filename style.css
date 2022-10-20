@@ -1,18 +1,22 @@
+body{
+    margin: 0;
+    background: linear-gradient(to bottom, #3873b5 0%, #6cc1ae 100%);
+}
 form{
     width: 30%;
-    margin: auto;
+    margin: 50px auto;
+    /* border-radius: 10px; */
+    border-color: transparent;
+    box-shadow: 2px 2px 15px #16323b;
 }
-h1{
-    text-align: center;
-}
+
 .btn{
     text-align: center;
-    margin: 15px;
-    padding: 10px;
+    padding: 5px;
 }.btn button{
-    margin: 5px;
     padding: 5px;
     width: 10%;
+    outline: none;
 }
 a{
     text-decoration: none;
@@ -21,6 +25,7 @@ form label,input,textarea{
     display:block;
     margin: 10px auto;
     width: 90%;
+    outline: none;
 }
 label{
     margin-left: 80px;
@@ -28,11 +33,22 @@ label{
 input{
     padding: 10px ;
     border-radius: 5px;
+    border-color: transparent;
+    background-color: rgb(235, 231, 231);
 }
-.flex{
-    display: flex;
-}
+
 select{
     width: 75%;
     padding: 5px;
+}
+
+#tete{
+    background: white;
+    margin: auto;
+    width:100% ;
+    margin-bottom: 8px;
+    padding: 1px;
+    box-sizing: border-box;
+    color: #3873b5;
+    text-align: center;
 }
