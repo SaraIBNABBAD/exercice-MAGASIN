@@ -1,16 +1,16 @@
 <?php
-include "database.php";
-// afficher les iameg;
-/* function getImage(){
-    $lienImg="download/";
-    $lierImg=$lienImg.basename($_FILES["fileToUpload"]["name"]);
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$lierImg)) {
-        return $lierImg ;
+include "database.php";include "produit.php";
+// afficher les image;
+function afficheImage(){
+    $lien_img="download/";
+    $lier_img=$lien_img.basename($_FILES["images"]["name"]);
+    if (move_uploaded_file($_FILES["images"]["tmp_name"],$lier_img)) {
+        return $lier_img ;
     }else{
         echo "echoué";
         return null;
     }
-} */
+} 
 
 // stocker les données dans la BD via le formulaire;
 
@@ -22,26 +22,24 @@ if (isset($_POST["submit"])) {
         $prix=htmlspecialchars($_POST["prix"]);
         $quantite=htmlspecialchars($_POST["qte"]);
         $descript=htmlspecialchars($_POST["desc"]);
-        // $img=getImage();
+        $cate=$_POST["cat"];
+        $img=afficheImage();
     }
-    // $pdt = new Produit ();
-    // $pdt->getInfo(); 
+    
 
-    if ($pdo!=null) {
-        $query="INSERT INTO produits (Nom,PrixUnitaire,Quantité,'Description') VALUE (:Nom,:PrixUnitaire,:Quantité,:'Description');";
-        $params=[
-            'Nom'=>$nom,
-            'PrixUnitaire'=>$prix,            
-            'Quantité'=>$quantite,
-            'Description'=>$descript,
-            // 'Photo'=>$img,
+    if ($pdo != null) {
+        $query="INSERT INTO produits (Nom,PrixUnitaire,Quantité,Description,Photo,Id_catégorie) VALUES (:Nom,:PrixUnitaire,:Quantité,:Description,:Photo,:Id_catégorie);";
+        $tab=[
+            "Nom"=>$nom,
+            "PrixUnitaire"=>$prix,            
+            "Quantité"=>$quantite,
+            "Description"=>$descript,
+            "Photo"=>$img,
+            "Id_catégorie"=>$cate,
+
         ];
-        $statement = $pdo -> prepare($query);
-        $statement->execute($params);
+        $statement = $pdo->prepare($query);
+        $statement->execute($tab);
         echo "produit ajouté avec succé";
-    }else{
-        echo "nnnnnnnnnnn";
     }
 }
-
-

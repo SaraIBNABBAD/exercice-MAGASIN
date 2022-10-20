@@ -8,7 +8,7 @@ $query="CREATE TABLE`".$table_name ."`(
 `PrixUnitaire` FLOAT NOT NULL,
 `Quantité` INT NOT NULL,
 `Description` TEXT NOT NULL,
-`Photo` TEXT NOT NULL,
+`Photo` TEXT  NULL,
 `Id_catégorie`INT NOT NULL,
 PRIMARY KEY (`Id`));";
 $pdo->exec($query);

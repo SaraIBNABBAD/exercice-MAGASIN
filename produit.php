@@ -10,7 +10,7 @@ class Produit{
       $this->prix=$_POST["prix"];
       $this->quantite=$_POST["qte"];
       $this->$descript=$_POST["desc"];
-      $this->img=($_FILES["fileToUpload"]["name"]);
+      $this->img=($_FILES["images"]["name"]);
     }
    
    public function getInfo(){

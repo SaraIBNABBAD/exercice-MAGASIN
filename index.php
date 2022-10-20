@@ -12,12 +12,18 @@
 //    include "catego_table.php";
     ?>
 
-<form action="traite.php" method="post" enctype="multipartform-data">
+<form action="traite.php" method="post" enctype="multipart/form-data">
 <fieldset>
     <div>
         <label for="nom">Nom de produit
          <input type="text" id="nom" name="nomPDT">
         </label>
+        <select name="cat" id="catégorie">
+            <option value="1 Létier">Létier</option>
+            <option value="2 Viande">Viande</option>
+            <option value="3 Légume">Légume</option>
+            <option value="4 Fruit">Fruit</option>
+        </select>
     </div>
     <div>
         <label for="prix">Prix Unitaire(dh)
@@ -35,7 +41,7 @@
         </label>
     </div>
     <div>
-    <input type="file" name="fileToUpload" id="">
+    <input type="file" name="images">
     </div>
     <div>
         <input type="submit" value="Valider" name="submit">
