@@ -1,6 +1,7 @@
 <?php
-include "database.php";include "produit.php";
-// afficher les image;
+include "database.php";
+include "produit.php";
+// stocker les images dans le dossier des image;
 function afficheImage(){
     $lien_img="download/";
     $lier_img=$lien_img.basename($_FILES["images"]["name"]);
@@ -11,7 +12,7 @@ function afficheImage(){
         return null;
     }
 } 
-
+// $pdt=new Produit();
 // stocker les données dans la BD via le formulaire;
 
 if (isset($_POST["submit"])) {
@@ -28,15 +29,14 @@ if (isset($_POST["submit"])) {
     
 
     if ($pdo != null) {
-        $query="INSERT INTO produits (Nom,PrixUnitaire,Quantité,Description,Photo,Id_catégorie) VALUES (:Nom,:PrixUnitaire,:Quantité,:Description,:Photo,:Id_catégorie);";
+        $query="INSERT INTO produits (Nom,PrixUnitaire,Quantite,Description,Photo,Id_categorie) VALUES (:Nom,:PrixUnitaire,:Quantite,:Description,:Photo,:Id_categorie);";
         $tab=[
             "Nom"=>$nom,
             "PrixUnitaire"=>$prix,            
-            "Quantité"=>$quantite,
+            "Quantite"=>$quantite,
             "Description"=>$descript,
             "Photo"=>$img,
-            "Id_catégorie"=>$cate,
-
+            "Id_categorie"=>$cate,
         ];
         $statement = $pdo->prepare($query);
         $statement->execute($tab);

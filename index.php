@@ -19,10 +19,10 @@
          <input type="text" id="nom" name="nomPDT">
         </label>
         <select name="cat" id="catégorie">
-            <option value="1 Létier">Létier</option>
-            <option value="2 Viande">Viande</option>
-            <option value="3 Légume">Légume</option>
-            <option value="4 Fruit">Fruit</option>
+            <option value="1">Létier</option>
+            <option value="2">Viande</option>
+            <option value="3">Légume</option>
+            <option value="4">Fruit</option>
         </select>
     </div>
     <div>
@@ -30,7 +30,7 @@
          <input type="text" id="prix" name="prix">
         </label>
     </div>
-    <div>prix
+    <div>
         <label for="qte">Quantité
          <input type="number" id="qte" name="qte" min=1>
         </label>
