@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+}
+nav{
+    background-color: #3873b5;
+}
+form{
+    width: 40%;
+    padding: 15px;
+    margin: auto;
+}
+form h1{
+    text-align: center;
+}
+form fieldset{
+    padding: 20px;
+}
+.champ{
+    text-align: center;
+    margin: 10px;
+}
+label{
+    font-size: 1em;
+}
+.champ input{
+    margin: 10px;
+    padding: 5px;
+    outline: none;
+}
+.click{
+    width: 60%;
+    padding: 8px;
+    margin-left: 100px;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 8px;
+    border-color: transparent;
+    font-size: 1em;
+}

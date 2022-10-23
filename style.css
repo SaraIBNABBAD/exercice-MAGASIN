@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    background: linear-gradient(to bottom, #3873b5 0%, #6cc1ae 100%);
+   
 }
 form{
     width: 30%;
@@ -8,6 +8,7 @@ form{
     /* border-radius: 10px; */
     border-color: transparent;
     box-shadow: 2px 2px 15px #16323b;
+    background: linear-gradient(to bottom, #3873b5 0%, #6cc1ae 100%);
 }
 
 .btn{
@@ -36,6 +37,12 @@ input{
     border-color: transparent;
     background-color: rgb(235, 231, 231);
 }
+textarea{
+    padding: 10px ;
+    border-radius: 5px;
+    border-color: transparent;
+    background-color: rgb(235, 231, 231);
+}
 
 select{
     width: 75%;
@@ -51,4 +58,8 @@ select{
     box-sizing: border-box;
     color: #3873b5;
     text-align: center;
+}
+.flex{
+    display: flex;
+    flex-direction: row;
 }

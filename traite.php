@@ -38,7 +38,54 @@ if (isset($_POST["submit"])) {
         $statement = $pdo->prepare($query);
         $statement->execute($tab);
         echo "produit ajouté avec succé";
+        header("location: pdt_cat.php");
     }
    
 }
 
+
+// Modification de tableau;
+
+if (isset($_POST["update"])) {
+    
+    if (empty(trim($_POST["nomPDT"]))or empty(trim($_POST["prix"]))or empty(trim($_POST["qte"])) or empty(trim($_POST["desc"]))) {
+        echo "Veuillez remplir tous les champs";
+    }else{
+        $nom=htmlspecialchars($_POST["nomPDT"]);
+        $prix=htmlspecialchars($_POST["prix"]);
+        $quantite=htmlspecialchars($_POST["qte"]);
+        $descript=htmlspecialchars($_POST["desc"]);
+        $id=$_POST["idPDT"];
+        $cate=$_POST["cat"];
+        $img = afficheImage();
+        
+    }
+
+
+    $sql ="UPDATE produits set Nom=:Nom,PrixUnitaire=:PrixUnitaire,Quantite=:Quantite,Description=:Description,Photo=:Photo,Id_categorie=:Id_categorie WHERE Id=:Id;";
+
+    $tab=[
+        "Id"=>$id,
+        "Nom"=>$nom,
+        "PrixUnitaire"=>$prix,            
+        "Quantite"=>$quantite,
+        "Description"=>$descript,
+        "Photo"=>$img,
+        "Id_categorie"=>$cate,
+    ];
+
+    if ($pdo != null) {
+    
+    $statement = $pdo->prepare($sql);
+
+     if ($statement->execute($tab)) {
+         echo "success";
+        
+        header("location: pdt_cat.php");  
+     }
+
+    }
+ }
+
+
+ 

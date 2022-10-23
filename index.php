@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen" type="text/css"  href="style.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="nav.css">
+    <header>
+    <nav>
+        <ul>
+            <li><a href="Index.php">Acceuil</a></li>
+            <li><a href="pdt_cat.php">Produit</a></li>
+            <li><a href="affichCatg.php">Catégorie</a></li>
+            <li><a href="addCat.php">New Catégorie</a></li>
+        </ul>
+    </nav>
+</header>
     <title>Document</title>
 </head>
 <body>
@@ -21,56 +32,42 @@
    
 
 <form action="traite.php" method="post" enctype="multipart/form-data">
-<div id="tete">
+    <div id="tete">
         <h1> MAGASIN DE PRODUIT</h1>
     </div> 
-<fieldset>
-    <legend>AJOUTER PRODUIT</legend>
-    
-    <div>
-        <label for="nom">Nom de produit
-         <input type="text" id="nom" name="nomPDT">
-        </label>
-        <label for="catégorie">Catégorie
-        <select name="cat" id="catégorie">
-            <?php foreach($categories as $categorie):?>
-                <option value="<?= $categorie['Id']?>"><?= $categorie['Libelle']?></option>
-                <?php endforeach?>
-        </select>
-        </label>
-    </div>
-    <div>
-        <label for="prix">Prix Unitaire(dh)
-         <input type="text" id="prix" name="prix">
-        </label>
-    </div>
-    <div>
-        <label for="qte">Quantité
-         <input type="number" id="qte" name="qte" min=1>
-        </label>
-    </div>
-    <div>
-        <label for="desc">Description
-         <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
-        </label>
-    </div>
-    <div>
-    <input type="file" name="images">
-    </div>
-    <div>
-        <input type="submit" value="Valider" name="submit">
-    </div>
-    </div>    
-  </fieldset>
-</form>
-
-
-    
-  <div class="btn">
-     <button><a href="pdt_cat.php">Poduits</a></button>
-     <button><a href="addCat.php"> Ajouter Catégorie</a></button>
-     <button><a href="affichCatg.php">Catégorie</a></button>
-  </div>  
- 
+    <fieldset>
+      <legend>AJOUTER PRODUIT</legend>
+      <div class="flex">
+        <div>
+          <label for="nom">Nom de produit
+           <input type="text" id="nom" name="nomPDT">
+          </label>
+          <label for="catégorie">Catégorie
+                <select name="cat" id="catégorie">
+                    <?php foreach($categories as $categorie):?>
+                      <option value="<?= $categorie['Id']?>"><?= $categorie['Libelle']?></option>
+                    <?php endforeach?>
+                </select>
+          </label>
+      
+          <label for="prix">Prix Unitaire(dh)
+              <input type="text" id="prix" name="prix">
+          </label>
+        </div>
+        <div>
+          <label for="qte">Quantité
+              <input type="number" id="qte" name="qte" min=1>
+          </label>
+          <label for="desc">Description
+             <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+          </label>
+          <input type="file" name="images" accept="image/*">
+        </div>
+      </div>
+      <div>
+          <input type="submit" value="Valider" name="submit">
+      </div>    
+    </fieldset>
+</form> 
 </body>
 </html>
