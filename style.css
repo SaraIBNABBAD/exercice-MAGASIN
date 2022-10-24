@@ -22,6 +22,10 @@ form{
 a{
     text-decoration: none;
 }
+fieldset{
+    color: white;
+    font-size: 0.8em;
+}
 form label,input,textarea{
     display:block;
     margin: 10px auto;
@@ -59,7 +63,7 @@ select{
     color: #3873b5;
     text-align: center;
 }
-.flex{
+/* .flex{
     display: flex;
     flex-direction: row;
-}
+} */

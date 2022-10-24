@@ -41,6 +41,7 @@
     
       <div>
       <input type="hidden" id="id" name="idPDT" value="<?= $prdt['Id']?>">
+      <input type="hidden" id="id" name="photo" value="<?= $prdt['Photo']?>">
           <label for="nom">Nom de produit
            <input type="text" id="nom"  value="<?= $prdt['Nom']?>" name="nomPDT">
           </label>
@@ -69,7 +70,7 @@
       </div>
       <div>
       <input type="file" name="images">
-      <input type="hidden" name="photo" value="<?=$prdt['Photo']?>"  >
+      
       <img src="<?= $prdt['Photo']?>"width="150px" alt="<?= $prdt['Nom']?>" accept="image/*">
       </div>
       <div>

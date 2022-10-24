@@ -28,3 +28,7 @@ nav ul li a:hover{
     border-bottom: #6cc1ae 2px solid;
     color: white;
 }
+button{
+    background-color: transparent;
+    border: none;
+}

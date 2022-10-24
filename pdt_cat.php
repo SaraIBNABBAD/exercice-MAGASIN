@@ -5,7 +5,7 @@ $statmnt=$pdo->prepare($sql);
 if($statmnt->execute()){
     $listPdt=$statmnt->fetchAll(PDO::FETCH_ASSOC);
 }
-if (isset($_GET['id'])) {
+ if (isset($_GET['id'])) {
     $idPdt=$_GET['id'];
     $query="DELETE FROM produits WHERE id=:id;";
     $tab=[
@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
     $stmt=$pdo->prepare($query);
      $stmt->execute($tab);
      header("location:pdt_cat.php");
-}
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +69,7 @@ if (isset($_GET['id'])) {
                 <td><img src="<?= $prodt['Photo'] ?>" alt="<?= $prodt['Nom'] ?>"width="100px"/></td>
                 <td><?= $prodt['Libelle'] ?></td>
                 <td><a href="updateP.php?id=<?=$prodt['Id']?>"><i class="fa-solid fa-square-pen text-primary fs-3 text-center" ></i></a></td>
-                <td><a href="pdt_cat.php?id=<?=$prodt['Id']?>"><i class="fa-solid fa-trash-can text-danger fs-4 text-center"r></i></a></td>
+                <td><button onclick="confirmation(<?=$prodt['Id']?>)"><i class="fa-solid fa-trash-can text-danger fs-4 text-center"r></i></button></td>
             </tr>
             <?php endforeach ?>
         </tbody>
@@ -77,6 +77,13 @@ if (isset($_GET['id'])) {
     
 </body>
 </html>
+<script>
+    function confirmation(id){
+        if(confirm("Etes-vous sure de supprimer ?")){
+            location.href="./pdt_cat.php?id="+id;
+        }
+    }
+</script>
 
 
 

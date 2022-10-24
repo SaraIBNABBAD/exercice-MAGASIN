@@ -57,7 +57,12 @@ if (isset($_POST["update"])) {
         $descript=htmlspecialchars($_POST["desc"]);
         $id=$_POST["idPDT"];
         $cate=$_POST["cat"];
-        $img = afficheImage();
+        // $img = afficheImage();
+        if($_FILES["images"]["name"]!=""){
+            $img = afficheImage();
+        }else{
+            $img=$_POST['photo'];
+        }
         
     }
 
