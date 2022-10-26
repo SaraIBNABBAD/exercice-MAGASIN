@@ -17,3 +17,4 @@ if(isset($_POST["add"])){
     $stt->execute($tabCat);
     echo "categorie ajouté avec succé";
  }
+

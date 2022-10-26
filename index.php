@@ -1,3 +1,19 @@
+<?php
+    include "database.php";
+
+    session_start();
+    if(!isset($_SESSION['user'])){
+        header("location:logIn.php");
+    }
+     $selectQuery="Select* from categorie";
+     if ($pdo!=null){
+         $stmt=$pdo->prepare($selectQuery);
+         $stmt->execute();
+         $categories=$stmt->fetchAll(PDO::FETCH_ASSOC);
+     }
+    ?>
+    
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,19 +34,7 @@
 </header>
     <title>Document</title>
 </head>
-<body>
-    <?php
-    include "database.php";
-     $selectQuery="Select* from categorie";
-     if ($pdo!=null){
-         $stmt=$pdo->prepare($selectQuery);
-         $stmt->execute();
-         $categories=$stmt->fetchAll(PDO::FETCH_ASSOC);
-     }
-    ?>
-    
-   
-
+<body> 
 <form action="traite.php" method="post" enctype="multipart/form-data">
     <div id="tete">
         <h1> MAGASIN DE PRODUIT</h1>

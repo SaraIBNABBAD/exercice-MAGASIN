@@ -1,5 +1,10 @@
 <?php
 require "database.php";
+include "logout.php";
+session_start();
+    if(!isset($_SESSION['user'])){
+        header("location:logIn.php");
+    }
 $sql="SELECT p.Id,p.Nom , p.PrixUnitaire,p.Quantite,p.Description,p.Photo,c.Libelle FROM produits p,categorie c WHERE p.Id_categorie=c.id" ;
 $statmnt=$pdo->prepare($sql);
 if($statmnt->execute()){
@@ -15,6 +20,13 @@ if($statmnt->execute()){
      $stmt->execute($tab);
      header("location:pdt_cat.php");
 } 
+
+/* function logout(){
+    unset($_SESSION['user']);
+    if (session_destroy()) {
+        header("location:singUp.php");
+    }
+} */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +49,9 @@ if($statmnt->execute()){
             <li><a href="Index.php">Acceuil</a></li>
             <li><a href="affichCatg.php">Catégorie</a></li>
             <li><a href="addCat.php">New Catégorie</a></li>
+            <li><a href="logout.php?logout">Logout</a></li>
         </ul>
+        
     </nav>
 </header>
 <body>

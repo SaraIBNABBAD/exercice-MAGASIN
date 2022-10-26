@@ -1,5 +1,6 @@
 <?php
 include "database.php";
+// session_start();
 // stocker les images dans le dossier des image;
 function afficheImage(){
     $lien_img="download/";
@@ -92,5 +93,3 @@ if (isset($_POST["update"])) {
     }
  }
 
-
- 

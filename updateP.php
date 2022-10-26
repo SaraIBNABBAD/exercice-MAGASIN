@@ -10,6 +10,10 @@
 <body>
     <?php
     include "database.php";
+    session_start();
+    if(!isset($_SESSION['user'])){
+        header("location:logIn.php");
+    }
      $selectQuery="Select* from categorie";
      if ($pdo!=null){
          $stmt=$pdo->prepare($selectQuery);

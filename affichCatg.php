@@ -1,5 +1,9 @@
 <?php
 include "database.php";
+session_start();
+    if(!isset($_SESSION['user'])){
+        header("location:logIn.php");
+    }
 $query=" SELECT* FROM categorie";
 $statemt=$pdo->prepare($query);
 if($statemt->execute()){
