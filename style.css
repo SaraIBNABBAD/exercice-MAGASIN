@@ -24,7 +24,7 @@ a{
 }
 fieldset{
     color: white;
-    font-size: 0.8em;
+    font-size: 1em;
 }
 form label,input,textarea{
     display:block;
@@ -62,4 +62,8 @@ select{
     box-sizing: border-box;
     color: #3873b5;
     text-align: center;
+}
+.valider{
+    background-color: #3873b5;
+    color: white;
 }

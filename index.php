@@ -29,6 +29,7 @@
             <li><a href="pdt_cat.php">Produit</a></li>
             <li><a href="affichCatg.php">Catégorie</a></li>
             <li><a href="addCat.php">New Catégorie</a></li>
+            <li><a href="logout.php?logout">Logout</a></li>
         </ul>
     </nav>
 </header>
@@ -69,7 +70,7 @@
         </div>
       </div>
       <div>
-          <input type="submit" value="Valider" name="submit">
+          <input type="submit" value="Valider" name="submit" class="valider">
       </div>    
     </fieldset>
 </form> 

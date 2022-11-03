@@ -45,36 +45,33 @@ if (isset($_POST['sing'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="signup.css">
     <title>SingUP</title>
 </head>
 <body>
     <form action="" method="post" enctype="multipart/form-data">
-        <div>
-            <label for="name">User Name</label>
+        <div class="logo"></div>
+        <i class="fa-solid fa-camera camera"></i>
+        <h1>Créer un compte</h1>
+        <div class="rond">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="name" name="nom" placeholder="Username">
         </div>
-        <div>
-            <input type="text" id="name" name="nom">
+        <div class="rond">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="email" name="email" placeholder="Email">
         </div>
-        <div>
-            <label for="email">Email</label>
+        <div class="rond">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="pass" name="pass" placeholder="Password">
         </div>
-        <div>
-            <input type="email" id="email" name="email">
-        </div>
-        <div>
-            <label for="pass">Passe word</label>
-        </div>
-        <div>
-            <input type="password" id="pass" name="pass">
-        </div>
-        <div>
-            <label for="photo">Photo</label>
-        </div>
-        <div>
+        <div class="rond">
+            <!-- <i class="fa-solid fa-camera"> -->
             <input type="file" id="photo" name="images">
         </div>
         <div>
-            <input type="submit" value="SingUp" name="sing">
+            <input type="submit" value="SingUp" name="sing" class="signup">
         </div>
     </form>
 </body>

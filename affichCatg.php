@@ -30,6 +30,7 @@ if($statemt->execute()){
             <li><a href="Index.php">Acceuil</a></li>
             <li><a href="pdt_cat.php">Produit</a></li>
             <li><a href="addCat.php">New Catégorie</a></li>
+            <li><a href="logout.php?logout">Logout</a></li>
         </ul>
     </nav>
 </header>

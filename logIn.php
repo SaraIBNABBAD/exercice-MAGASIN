@@ -1,16 +1,16 @@
 <?php
 include "database.php";
 if (isset($_POST['log'])) {
-    if (empty(trim($_POST['email']))or empty(trim($_POST['pass']))) {
+    if (empty(trim($_POST['name']))or empty(trim($_POST['pass']))) {
         echo "Les champs sont obligatoires";
     }else{
-            $email=htmlspecialchars($_POST['email']);
+            $name=htmlspecialchars($_POST['name']);
             $pass=htmlspecialchars($_POST['pass']);
         }
-    $query="SELECT* FROM user WHERE email=:email;";
+    $query="SELECT* FROM user WHERE username=:username;";
     
       $stmt=$pdo->prepare($query);
-      $stmt->bindValue(':email',$email);
+      $stmt->bindValue(':username',$name);
       $stmt->execute();
       $user=$stmt->fetch(PDO::FETCH_ASSOC);
       if(isset($user)){
@@ -26,7 +26,7 @@ if (isset($_POST['log'])) {
         echo "Utilisateur existe pas !";
     }
     
- }
+}
 
 ?>
 
@@ -36,28 +36,34 @@ if (isset($_POST['log'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="login.css">
     <title>LogIn</title>
 </head>
+<nav>
+    <div>
+       <button><a href="singUp.php">S'ENREGISTRER</a></button>
+    </div>
+</nav>
 <body>
     <form action="" method="post">
-    <div>
-            <label for="email">Email</label>
+        <div class="logo">
         </div>
-        <div>
-            <input type="email" id="email" name="email">
+            <i class="fa-solid fa-user user" ></i>
+        
+        <h1>LOG IN</h1>
+        <div class="content">
+          <div class="rond">
+          <i class="fa-solid fa-user"></i>
+              <input type="text" id="name" name="name" placeholder="Username">
+          </div>
+              
+         <div class="rond">
+         <i class="fa-solid fa-lock"></i>
+              <input type="password" id="pass" name="pass" placeholder="Password">
+         </div>
         </div>
-        <div>
-            <label for="pass">Password</label>
-        </div>
-        <div>
-            <input type="password" id="pass" name="pass">
-        </div>
-        <div>
-            <input type="submit" value="LogIn" name="log">
-        </div>
-        <div>
-            <button><a href="singUp.php">SignUp</a></button>
-        </div>
+        <input type="submit" value="SE CONNECTER" name="log" class="login">
     </form>
 </body>
 </html>

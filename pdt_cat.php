@@ -5,11 +5,13 @@ include "logout.php";
     if(!isset($_SESSION['user'])){
         header("location:logIn.php");
     }
+// ******** Recupération de la table pour l'afficher dans un tableau*******
 $sql="SELECT p.Id,p.Nom , p.PrixUnitaire,p.Quantite,p.Description,p.Photo,c.Libelle FROM produits p,categorie c WHERE p.Id_categorie=c.id" ;
 $statmnt=$pdo->prepare($sql);
 if($statmnt->execute()){
     $listPdt=$statmnt->fetchAll(PDO::FETCH_ASSOC);
 }
+// ******** Suppression*******
  if (isset($_GET['id'])) {
     $idPdt=$_GET['id'];
     $query="DELETE FROM produits WHERE id=:id;";
@@ -20,6 +22,8 @@ if($statmnt->execute()){
      $stmt->execute($tab);
      header("location:pdt_cat.php");
 } 
+
+// ***** SEARCH.....*****
 if (isset($_GET['search'])) {
     $search=$_GET['search'];
     $querySearch= "SELECT p.Id, p.Nom, p.PrixUnitaire, p.Description, p.Quantite, p.Photo, c.Libelle 
@@ -52,16 +56,28 @@ if (isset($_GET['search'])) {
 </head>
 <header>
     <nav>
-        <ul>
-            <li><a href="Index.php">Acceuil</a></li>
-            <li><a href="affichCatg.php">Catégorie</a></li>
-            <li><a href="addCat.php">New Catégorie</a></li>
-            <li><a href="logout.php?logout">Logout</a></li>
-        </ul>
-        <form class="search" method="get">
-         <input type="search" name="search">
-         <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
+   <!--  <img src="<?= $user['photo'] ?>" width="1000px" alt="">
+    <p><?= $user['username'] ?></p> -->
+        <div class="d-flex justify-content-end align-items-center">
+           <ul>
+               <li><a href="Index.php">Acceuil</a></li>
+               <li><a href="affichCatg.php">Catégorie</a></li>
+               <li><a href="addCat.php">New Catégorie</a></li>
+               <li><a href="logout.php?logout">Logout</a></li>
+           </ul>
+           <form class="search" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+                    <button class="input-group-text">
+                     <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+              <!-- <input type="search" name="search" placeholder="Search">
+              <button>
+                 <i class="fa-solid fa-magnifying-glass text-white"></i>
+              </button> -->
+           </form>
+        </div>
     </nav>
     
 </header>
