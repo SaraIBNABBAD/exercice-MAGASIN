@@ -1,7 +1,7 @@
 <?php
 require "database.php";
 include "logout.php";
-session_start();
+
     if(!isset($_SESSION['user'])){
         header("location:logIn.php");
     }
@@ -20,13 +20,20 @@ if($statmnt->execute()){
      $stmt->execute($tab);
      header("location:pdt_cat.php");
 } 
+if (isset($_GET['search'])) {
+    $search=$_GET['search'];
+    $querySearch= "SELECT p.Id, p.Nom, p.PrixUnitaire, p.Description, p.Quantite, p.Photo, c.Libelle 
+    FROM produits p, categorie c 
+    WHERE p.Id_categorie = c.Id AND Nom like :input ;";
+    $tab=[
+        "input"=>"%".$search."%"
+    ];
+    $stmt = $pdo->prepare($querySearch);
+    $stmt->execute($tab);
+    $listPdt=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+}
 
-/* function logout(){
-    unset($_SESSION['user']);
-    if (session_destroy()) {
-        header("location:singUp.php");
-    }
-} */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,8 +58,12 @@ if($statmnt->execute()){
             <li><a href="addCat.php">New Catégorie</a></li>
             <li><a href="logout.php?logout">Logout</a></li>
         </ul>
-        
+        <form class="search" method="get">
+         <input type="search" name="search">
+         <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
     </nav>
+    
 </header>
 <body>
     <div class=" tete bg-primary text-white  m-auto text-center  mt-5">
@@ -92,11 +103,27 @@ if($statmnt->execute()){
 </body>
 </html>
 <script>
+    // cofirmation de suppression
     function confirmation(id){
         if(confirm("Etes-vous sure de supprimer ?")){
             location.href="./pdt_cat.php?id="+id;
         }
     }
+// recuperation de la valeur de la recherche
+   /*  let form = document.querySelector(".search");
+
+let input = form.elements['search'];
+console.log(input.value);
+input.addEventListener("input", () => {
+    location.href = "pdt_cat.php?search=" + input.value;
+})
+
+
+function search() {
+    let form = document.querySelector(".search");
+
+    let input = form.elements['search'];
+}  */
 </script>
 
 
